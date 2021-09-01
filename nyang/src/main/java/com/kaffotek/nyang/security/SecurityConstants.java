@@ -16,6 +16,7 @@ public class SecurityConstants {
 	public static final String UPDATE_ROUNDS_URL = "/rounds";
 	public static final String POST_ROUNDS_URL = "/rounds";
 	public static final String GET_ROUND_URL = "/rounds/**";
+	public static final String SIGN_IN_URL = "/users/login";
     
     public static String getTokenSecret()
     {

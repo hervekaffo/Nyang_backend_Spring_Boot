@@ -1,5 +1,6 @@
 package com.kaffotek.nyang.ui.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,7 @@ import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.ResponseHeader;
 
-
+@CrossOrigin(origins="http://127.0.0.1:3000")
 @RestController
 public class AuthenticationController {
 

@@ -84,11 +84,11 @@ public class UserServiceImpl implements UserService {
 		if (userEntity == null)
 			throw new UsernameNotFoundException(email);
 
-		//UserDto returnValue = new UserDto();
-		ModelMapper modelMapper = new ModelMapper();
+		UserDto returnValue = new UserDto();
+		//ModelMapper modelMapper = new ModelMapper();
 		
-		//BeanUtils.copyProperties(userEntity, returnValue);
-		UserDto returnValue  = modelMapper.map(userEntity, UserDto.class);
+		BeanUtils.copyProperties(userEntity, returnValue);
+		//UserDto returnValue  = modelMapper.map(userEntity, UserDto.class);
 		return returnValue;
 	}
 

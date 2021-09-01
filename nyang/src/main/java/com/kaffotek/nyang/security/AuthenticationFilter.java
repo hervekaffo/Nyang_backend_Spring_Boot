@@ -21,6 +21,7 @@ import com.kaffotek.nyang.SpringApplicationContext;
 import com.kaffotek.nyang.service.UserService;
 import com.kaffotek.nyang.shared.dto.UserDto;
 import com.kaffotek.nyang.ui.model.request.UserLoginRequestModel;
+import com.kaffotek.nyang.ui.model.response.UserRest;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -70,10 +71,12 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter{
                 .signWith(SignatureAlgorithm.HS512, SecurityConstants.getTokenSecret())
                 .compact();
         UserService userService = (UserService)SpringApplicationContext.getBean("userServiceImpl");
-        UserDto userDto = userService.getUser(userName);
+        UserDto userDto = userService.getUser(userName);    
         
         res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
         res.addHeader("UserID", userDto.getUserId());
+        res.addHeader("name", userDto.getFirstName());
+        
 
     } 
     
