@@ -21,18 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.kaffotek.nyang.service.RoundService;
 import com.kaffotek.nyang.shared.dto.RoundDto;
-import com.kaffotek.nyang.shared.dto.UserDto;
 import com.kaffotek.nyang.ui.model.request.RoundDetailsRequestModel;
 import com.kaffotek.nyang.ui.model.response.RoundRest;
-import com.kaffotek.nyang.ui.model.response.UserRest;
 
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-
-//import io.swagger.annotations.ApiImplicitParam;
-//import io.swagger.annotations.ApiImplicitParams;
-//import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("rounds") //http://localhost:8080/rounds

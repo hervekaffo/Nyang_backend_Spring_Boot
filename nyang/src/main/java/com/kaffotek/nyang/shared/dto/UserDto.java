@@ -16,6 +16,7 @@ public class UserDto implements Serializable {
 	private String emailVerificationToken;
 	private Boolean emailVerificationStatus = false;
 	private List<AddressDTO> addresses;
+	private List<MealDto> meals;
 
 	public long getId() {
 		return id;
@@ -96,6 +97,22 @@ public class UserDto implements Serializable {
 	public void setAddresses(List<AddressDTO> addresses) {
 		this.addresses = addresses;
 	}
+
+	/**
+	 * @return the meals
+	 */
+	public List<MealDto> getMeals() {
+		return meals;
+	}
+
+	/**
+	 * @param meals the meals to set
+	 */
+	public void setMeals(List<MealDto> meals) {
+		this.meals = meals;
+	}
+	
+	
 	
 	
 

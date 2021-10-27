@@ -8,6 +8,7 @@ public class UserRest {
 	private String lastName;
 	private String email;
 	private List<AddressesRest> addresses;
+	private List<MealRest> meals;
 
 	public String getUserId() {
 		return userId;
@@ -48,5 +49,21 @@ public class UserRest {
 	public void setAddresses(List<AddressesRest> addresses) {
 		this.addresses = addresses;
 	}
+
+	/**
+	 * @return the meals
+	 */
+	public List<MealRest> getMeals() {
+		return meals;
+	}
+
+	/**
+	 * @param meals the meals to set
+	 */
+	public void setMeals(List<MealRest> meals) {
+		this.meals = meals;
+	}
+	
+	
 
 }

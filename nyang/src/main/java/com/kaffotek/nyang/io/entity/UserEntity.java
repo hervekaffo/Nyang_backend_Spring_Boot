@@ -11,8 +11,13 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
 @Table(name="users")
+@JsonIdentityInfo (generator = ObjectIdGenerators.PropertyGenerator.class, 
+property = "id")
 public class UserEntity implements Serializable {
  
 	private static final long serialVersionUID = 5313493413859894403L;
@@ -43,6 +48,9 @@ public class UserEntity implements Serializable {
 	
 	@OneToMany(mappedBy="userDetails", cascade=CascadeType.ALL)
 	private List<AddressEntity> addresses;
+	
+	@OneToMany(mappedBy="userDetails", cascade=CascadeType.ALL)
+	private List<MealEntity> meals;
 
 	public long getId() {
 		return id;
@@ -115,6 +123,21 @@ public class UserEntity implements Serializable {
 	public void setAddresses(List<AddressEntity> addresses) {
 		this.addresses = addresses;
 	}
+
+	/**
+	 * @return the meals
+	 */
+	public List<MealEntity> getMeals() {
+		return meals;
+	}
+
+	/**
+	 * @param meals the meals to set
+	 */
+	public void setMeals(List<MealEntity> meals) {
+		this.meals = meals;
+	}
+	
 	
 	
 

@@ -20,14 +20,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kaffotek.nyang.exceptions.UserServiceException;
 import com.kaffotek.nyang.service.AddressService;
 import com.kaffotek.nyang.service.UserService;
 import com.kaffotek.nyang.shared.dto.AddressDTO;
 import com.kaffotek.nyang.shared.dto.UserDto;
 import com.kaffotek.nyang.ui.model.request.UserDetailsRequestModel;
 import com.kaffotek.nyang.ui.model.response.AddressesRest;
-import com.kaffotek.nyang.ui.model.response.ErrorMessages;
 import com.kaffotek.nyang.ui.model.response.OperationStatusModel;
 import com.kaffotek.nyang.ui.model.response.RequestOperationName;
 import com.kaffotek.nyang.ui.model.response.RequestOperationStatus;
@@ -58,7 +56,7 @@ public class UserController {
 		@ApiImplicitParam(name="authorization", value="${userController.authorizationHeader.description}", paramType="header")
 	})
 	@GetMapping(path = "/{id}",
-			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+			produces = {MediaType.APPLICATION_JSON_VALUE })
 	public UserRest getUser(@PathVariable String id) {
 		UserRest returnValue = new UserRest();
 
@@ -69,8 +67,7 @@ public class UserController {
 		return returnValue;
 	}
 	
-	@PostMapping(consumes = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE }, produces = {
-			MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE }, produces = {MediaType.APPLICATION_JSON_VALUE })
 	public UserRest createUser(@RequestBody UserDetailsRequestModel userDetails) throws Exception{
 		UserRest returnValue = new UserRest(); 
 		
@@ -87,9 +84,7 @@ public class UserController {
 		return returnValue;
 	}
 	
-	@PutMapping(path = "/{id}", consumes = { MediaType.APPLICATION_XML_VALUE,
-			MediaType.APPLICATION_JSON_VALUE }, produces = { MediaType.APPLICATION_XML_VALUE,
-					MediaType.APPLICATION_JSON_VALUE })
+	@PutMapping(path = "/{id}", consumes = {MediaType.APPLICATION_JSON_VALUE }, produces = {MediaType.APPLICATION_JSON_VALUE })
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="authorization", value="${userController.authorizationHeader.description}", paramType="header")
 	})
@@ -108,7 +103,7 @@ public class UserController {
 		return returnValue;
 	}
 	
-	@DeleteMapping(path = "/{id}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	@DeleteMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE })
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="authorization", value="${userController.authorizationHeader.description}", paramType="header")
 	})
@@ -127,7 +122,7 @@ public class UserController {
 	@ApiImplicitParams({
 		@ApiImplicitParam(name="authorization", value="${userController.authorizationHeader.description}", paramType="header")
 	})
-	@GetMapping(produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+	@GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE })
 	public List<UserRest> getUsers(@RequestParam(value = "page", defaultValue = "0") int page,
 			@RequestParam(value = "limit", defaultValue = "2") int limit) {
 		List<UserRest> returnValue = new ArrayList<>();
@@ -152,7 +147,7 @@ public class UserController {
 	
 	// http://localhost:8080/nyang/users/jfhdjeufhdhdj/addresses
 	@GetMapping(path = "/{id}/addresses",
-			produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+			produces = {MediaType.APPLICATION_JSON_VALUE })
 	public List<AddressesRest> getUserAddresses(@PathVariable String id) {
 		List<AddressesRest> returnValue = new ArrayList<>();
 		
@@ -167,8 +162,7 @@ public class UserController {
 		return returnValue;
 	}
 	
-	@GetMapping(path = "/{userId}/addresses/{addressId}", produces = { MediaType.APPLICATION_JSON_VALUE,
-			MediaType.APPLICATION_XML_VALUE, "application/hal+json" })
+	@GetMapping(path = "/{userId}/addresses/{addressId}", produces = { MediaType.APPLICATION_JSON_VALUE, "application/hal+json" })
 	public AddressesRest getUserAddress(@PathVariable String userId, @PathVariable String addressId) {
 
 		AddressDTO addressesDto = addressService.getAddress(addressId);

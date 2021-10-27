@@ -1,9 +1,6 @@
 package com.kaffotek.nyang.shared.dto;
 
 import java.io.Serializable;
-import java.util.List;
-
-import javax.persistence.Column;
 
 public class RoundDto implements Serializable{
 
