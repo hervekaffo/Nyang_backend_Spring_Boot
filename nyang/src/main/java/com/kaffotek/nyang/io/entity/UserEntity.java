@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -51,6 +52,7 @@ public class UserEntity implements Serializable {
 	
 	@OneToMany(mappedBy="userDetails", cascade=CascadeType.ALL)
 	private List<MealEntity> meals;
+	
 
 	public long getId() {
 		return id;
@@ -137,6 +139,7 @@ public class UserEntity implements Serializable {
 	public void setMeals(List<MealEntity> meals) {
 		this.meals = meals;
 	}
+
 	
 	
 	

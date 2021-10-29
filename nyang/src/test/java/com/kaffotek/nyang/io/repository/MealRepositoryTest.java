@@ -73,7 +73,7 @@ class MealRepositoryTest {
 		mealEntity.setNotes("Ready to eat");
 		mealEntity.setPicture("/images/mealTest");
 		mealEntity.setQty(1);
-		mealEntity.setAvailable(true);
+		mealEntity.setIsAvailable(true);
 		mealEntity.setCookingDate(d);
 		mealEntity.setExpirationDate(d);
 		

@@ -16,12 +16,10 @@ import org.springframework.stereotype.Service;
 
 import com.kaffotek.nyang.exceptions.RoundServiceException;
 import com.kaffotek.nyang.io.entity.RoundEntity;
-import com.kaffotek.nyang.io.entity.UserEntity;
 import com.kaffotek.nyang.io.repository.RoundRepository;
 import com.kaffotek.nyang.service.RoundService;
 import com.kaffotek.nyang.shared.Utils;
 import com.kaffotek.nyang.shared.dto.RoundDto;
-import com.kaffotek.nyang.shared.dto.UserDto;
 
 @Service
 public class RoundServiceImpl implements RoundService{

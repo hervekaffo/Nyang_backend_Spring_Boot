@@ -8,8 +8,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-@Entity(name="addresses")
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@Entity
+@Table(name="addresses")
+@JsonIdentityInfo (generator = ObjectIdGenerators.PropertyGenerator.class, 
+ property = "id")
 public class AddressEntity implements Serializable {
 
 	private static final long serialVersionUID = 7809200551672852690L;

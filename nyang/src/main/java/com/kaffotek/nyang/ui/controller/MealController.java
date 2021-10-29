@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.kaffotek.nyang.io.entity.MealEntity;
-import com.kaffotek.nyang.io.repository.UserRepository;
 import com.kaffotek.nyang.service.MealService;
 import com.kaffotek.nyang.shared.dto.MealDto;
 import com.kaffotek.nyang.ui.model.request.MealDetailsRequestModel;
@@ -39,9 +38,6 @@ public class MealController {
 	
 	@Autowired
 	MealService mealService;
-	
-	@Autowired
-	UserRepository userRepository;
 	
 	//Get all the meals http://localhost:8080/nyang/meals(GET)
 	@GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
@@ -102,7 +98,7 @@ public class MealController {
 		return returnValue;
 	}
 	
-	// Update a meal http://localhost:8080/nyang/meals/:mealId(DELETE)
+	// Delete a meal http://localhost:8080/nyang/meals/:mealId(DELETE)
 	@DeleteMapping(path = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE })
 	public OperationStatusModel deleteMeal(@PathVariable String id) {
 		OperationStatusModel returnValue = new OperationStatusModel();

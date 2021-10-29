@@ -68,6 +68,9 @@ public class MealEntity implements Serializable{
 	@JoinColumn(name="users_id")
 	private UserEntity userDetails;
 	
+//	@OneToOne(mappedBy = "pickups")
+//	private PickupEntity pickup;
+	
 	
 	
 	/**
@@ -183,19 +186,6 @@ public class MealEntity implements Serializable{
 		this.qty = qty;
 	}
 
-	/**
-	 * @return the isAvailable
-	 */
-	public boolean isAvailable() {
-		return isAvailable;
-	}
-
-	/**
-	 * @param isAvailable the isAvailable to set
-	 */
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
-	}
 
 	/**
 	 * @return the cookingDdate
@@ -243,9 +233,33 @@ public class MealEntity implements Serializable{
 		this.userDetails = userDetails;
 	}
 
-	
+	/**
+	 * @return the isAvailable
+	 */
+	public Boolean getIsAvailable() {
+		return isAvailable;
+	}
 
-	
+	/**
+	 * @param isAvailable the isAvailable to set
+	 */
+	public void setIsAvailable(Boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+
+//	/**
+//	 * @return the pickup
+//	 */
+//	public PickupEntity getPickup() {
+//		return pickup;
+//	}
+//
+//	/**
+//	 * @param pickup the pickup to set
+//	 */
+//	public void setPickup(PickupEntity pickup) {
+//		this.pickup = pickup;
+//	}
 	
 	
 	

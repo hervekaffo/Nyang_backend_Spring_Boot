@@ -58,12 +58,12 @@ public class MealServiceImpl implements MealService{
 			System.out.println("Meal with ID: " + mealId + " not found");
 		
 		mealEntity.setName(meal.getName());
-		mealEntity.setName(meal.getName());
+		mealEntity.setQty(meal.getQty());
 		mealEntity.setLocation(meal.getLocation());
 		mealEntity.setDescription(meal.getDescription());
 		mealEntity.setNotes(meal.getNotes());
 		mealEntity.setPicture(meal.getPicture());
-		mealEntity.setAvailable(meal.isAvailable());
+		mealEntity.setIsAvailable(meal.isAvailable());
 		mealEntity.setCookingDate(meal.getCookingDate());
 		mealEntity.setExpirationDate(meal.getExpirationDate());
 		
@@ -100,7 +100,6 @@ public class MealServiceImpl implements MealService{
 		
 		for (MealEntity mealEntity : meals) {
             MealDto mealDto = new MealDto();
-			//BeanUtils.copyProperties(userEntity, userDto);
             mealDto = modelMapper.map(mealEntity, MealDto.class);
 			returnValue.add(mealDto);
         }
@@ -115,6 +114,7 @@ public class MealServiceImpl implements MealService{
 		meal.setMealId(publicMealId);
 		
 		UserEntity userEntity = userRepository.findByUserId(userId);
+		//UserEntity userEntity = userRepository.findByUserId(meal.getUserDetails().getUserId());
 
 		if (userEntity == null)
 			throw new UsernameNotFoundException("User with ID: " + userId + " not found");
