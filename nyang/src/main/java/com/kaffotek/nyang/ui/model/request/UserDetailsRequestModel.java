@@ -8,6 +8,8 @@ public class UserDetailsRequestModel {
 	private String lastName;
 	private String email;
 	private String password;
+	private String picture;
+	private int review;
 	private List<AddressRequestModel> addresses;
 	
 	public String getFirstName() {
@@ -27,6 +29,33 @@ public class UserDetailsRequestModel {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	/**
+	 * @return the picture
+	 */
+	public String getPicture() {
+		return picture;
+	}
+	/**
+	 * @param picture the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	
+	/**
+	 * @return the review
+	 */
+	public int getReview() {
+		return review;
+	}
+	/**
+	 * @param review the review to set
+	 */
+	public void setReview(int review) {
+		this.review = review;
 	}
 	public String getPassword() {
 		return password;

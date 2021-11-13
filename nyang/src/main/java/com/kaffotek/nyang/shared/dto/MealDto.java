@@ -153,9 +153,9 @@ public class MealDto {
 	/**
 	 * @return the userDetails
 	 */
-//	public UserDto getUserDetails() {
-//		return userDetails;
-//	}
+	public UserDto getUserDetails() {
+		return userDetails;
+	}
 	/**
 	 * @param userDetails the userDetails to set
 	 */

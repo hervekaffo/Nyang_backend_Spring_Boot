@@ -7,6 +7,8 @@ public class UserRest {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private String picture;
+	private int review;
 	private List<AddressesRest> addresses;
 	private List<MealRest> meals;
 
@@ -40,6 +42,37 @@ public class UserRest {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+
+	/**
+	 * @return the picture
+	 */
+	public String getPicture() {
+		return picture;
+	}
+
+	/**
+	 * @param picture the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	
+
+	/**
+	 * @return the review
+	 */
+	public int getReview() {
+		return review;
+	}
+
+	/**
+	 * @param review the review to set
+	 */
+	public void setReview(int review) {
+		this.review = review;
 	}
 
 	public List<AddressesRest> getAddresses() {

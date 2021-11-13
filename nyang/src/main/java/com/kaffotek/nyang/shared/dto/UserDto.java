@@ -11,6 +11,8 @@ public class UserDto implements Serializable {
 	private String firstName;
 	private String lastName;
 	private String email;
+	private int review;
+	private String picture;
 	private String password;
 	private String encryptedPassword;
 	private String emailVerificationToken;
@@ -56,6 +58,36 @@ public class UserDto implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	/**
+	 * @return the picture
+	 */
+	public String getPicture() {
+		return picture;
+	}
+
+	/**
+	 * @param picture the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	
+
+	/**
+	 * @return the review
+	 */
+	public int getReview() {
+		return review;
+	}
+
+	/**
+	 * @param review the review to set
+	 */
+	public void setReview(int review) {
+		this.review = review;
 	}
 
 	public String getPassword() {

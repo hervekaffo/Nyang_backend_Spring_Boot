@@ -7,7 +7,13 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,9 +24,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.kaffotek.nyang.io.entity.MealEntity;
+import com.kaffotek.nyang.io.repository.MealRepository;
 import com.kaffotek.nyang.service.MealService;
+import com.kaffotek.nyang.service.StorageService;
 import com.kaffotek.nyang.shared.dto.MealDto;
 import com.kaffotek.nyang.ui.model.request.MealDetailsRequestModel;
 import com.kaffotek.nyang.ui.model.response.MealRest;
@@ -39,6 +48,12 @@ public class MealController {
 	@Autowired
 	MealService mealService;
 	
+	@Autowired
+	MealRepository mealRepository;
+	
+	@Autowired
+    private StorageService storageService;
+	
 	//Get all the meals http://localhost:8080/nyang/meals(GET)
 	@GetMapping(produces = { MediaType.APPLICATION_JSON_VALUE })
 	public List<MealRest> getMeals(@RequestParam(value = "page", defaultValue = "0") int page,
@@ -54,6 +69,7 @@ public class MealController {
 		
 		return returnValue;
 	}
+	
 	
 	//Get a meal by Id http://localhost:8080/nyang/meals/:mealId(GET)
 	@ApiOperation(value="The Get Single Meal Details Web Service Endpoint",
@@ -137,4 +153,30 @@ public class MealController {
 		}
 		return returnValue;
 	}
+	
+	//Upload a meal image in S3 
+	@PostMapping("/upload")
+    public ResponseEntity<String> uploadFile(@RequestParam(value = "file") MultipartFile file) {
+        return new ResponseEntity<>(storageService.uploadFile(file), HttpStatus.OK);
+    }
+	
+	//Download file from s3
+	@GetMapping("/download/{fileName}")
+    public ResponseEntity<ByteArrayResource> downloadFile(@PathVariable String fileName) {
+        byte[] data = storageService.downloadFile(fileName);
+        ByteArrayResource resource = new ByteArrayResource(data);
+        return ResponseEntity
+                .ok()
+                .contentLength(data.length)
+                .header("Content-type", "application/octet-stream")
+                .header("Content-disposition", "attachment; filename=\"" + fileName + "\"")
+                .body(resource);
+    }
+
+	//Delete file from s3
+    @DeleteMapping("/delete/{fileName}")
+    public ResponseEntity<String> deleteFile(@PathVariable String fileName) {
+        return new ResponseEntity<>(storageService.deleteFile(fileName), HttpStatus.OK);
+    }
+	
 }

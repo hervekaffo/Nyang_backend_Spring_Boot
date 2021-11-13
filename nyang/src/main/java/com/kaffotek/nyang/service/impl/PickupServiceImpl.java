@@ -159,11 +159,10 @@ public class PickupServiceImpl implements PickupService {
 		pickupEntity.setPickupDate(pickup.getPickupDate());
 		pickupEntity.setRating(pickup.getRating());
 		
+		//Decrease the quantity of the meal when it is picked 
 		if(mealEntity.getQty() > 0) {
-			mealEntity.setQty(mealEntity.getQty()-1);
-			
-			mealRepository.save(mealEntity);
-			
+			mealEntity.setQty(mealEntity.getQty()-1);			
+			mealRepository.save(mealEntity);			
 			pickupRepository.save(pickupEntity);
 		}else {
 			throw new Exception("The meal "+ mealEntity.getName() +" is no longer available");

@@ -4,6 +4,11 @@ import java.util.Date;
 
 import com.kaffotek.nyang.shared.dto.UserDto;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
+@JsonIdentityInfo (generator = ObjectIdGenerators.PropertyGenerator.class, 
+property = "mealId")
 public class MealRest {
 	
 	private String mealId;
@@ -16,7 +21,7 @@ public class MealRest {
 	private boolean isAvailable;
 	private Date cookingDate;
 	private Date expirationDate;
-	private UserDto userDetails;
+	private UserRest userDetails;
 	
 	/**
 	 * @return the mealId
@@ -144,13 +149,13 @@ public class MealRest {
 	/**
 	 * @return the userDetails
 	 */
-//	public UserDto getUserDetails() {
-//		return userDetails;
-//	}
+	public UserRest getUserDetails() {
+		return userDetails;
+	}
 	/**
 	 * @param userDetails the userDetails to set
 	 */
-	public void setUserDetails(UserDto userDetails) {
+	public void setUserDetails(UserRest userDetails) {
 		this.userDetails = userDetails;
 	}
     

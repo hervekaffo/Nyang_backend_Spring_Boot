@@ -119,6 +119,8 @@ public class UserServiceImpl implements UserService {
 
 		userEntity.setFirstName(user.getFirstName());
 		userEntity.setLastName(user.getLastName());
+		userEntity.setPicture(user.getPicture());
+		userEntity.setReview(user.getReview());
 		
 		ModelMapper modelMapper = new ModelMapper();
 

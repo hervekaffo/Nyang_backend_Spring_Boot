@@ -60,6 +60,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
         	.permitAll()
         	.antMatchers(HttpMethod.PUT, SecurityConstants.UPDATE_PICKUPS_URL)
         	.permitAll()
+        	.antMatchers(HttpMethod.POST, SecurityConstants.UPLOAD_MEALS_IMAGE)
+        	.permitAll()
         	.antMatchers(HttpMethod.DELETE, SecurityConstants.DELETE_PICKUPS_URL)
         	.permitAll()
         	.antMatchers("/v2/api-docs", "/configuration/**", "/swagger*/**", "/webjars/**")

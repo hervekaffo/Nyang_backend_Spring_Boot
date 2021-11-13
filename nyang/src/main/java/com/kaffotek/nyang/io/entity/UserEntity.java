@@ -39,6 +39,12 @@ public class UserEntity implements Serializable {
 	@Column(nullable=false, length=120)
 	private String email;
 	
+	@Column(length=250)
+	private String picture="https://kaffotechimageupload.s3.us-east-2.amazonaws.com/marmite/user.png";
+	
+	@Column
+	private int review=1;
+	
 	@Column(nullable=false)
 	private String encryptedPassword;
 	
@@ -92,6 +98,37 @@ public class UserEntity implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+
+	/**
+	 * @return the picture
+	 */
+	public String getPicture() {
+		return picture;
+	}
+
+	/**
+	 * @param picture the picture to set
+	 */
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	
+
+	/**
+	 * @return the review
+	 */
+	public int getReview() {
+		return review;
+	}
+
+	/**
+	 * @param review the review to set
+	 */
+	public void setReview(int review) {
+		this.review = review;
 	}
 
 	public String getEncryptedPassword() {

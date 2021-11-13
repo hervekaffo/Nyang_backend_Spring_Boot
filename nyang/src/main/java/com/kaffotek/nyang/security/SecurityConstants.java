@@ -13,6 +13,8 @@ public class SecurityConstants {
 	public static final String PASSWORD_RESET_REQUEST_URL = "/users/password-reset-request";
 	public static final String PASSWORD_RESET_URL = "/users/password-reset";
 	public static final String H2_CONSOLE = "/h2-console/**";
+	
+	//Rounds
 	public static final String UPDATE_ROUNDS_URL = "/rounds/**";
 	public static final String POST_ROUNDS_URL = "/rounds";
 	public static final String GET_ROUND_URL = "/rounds/**";
@@ -24,6 +26,7 @@ public class SecurityConstants {
 	public static final String GET_MEALS_URL = "/meals";
 	public static final String GET_MEAL_URL = "/meals/**";
 	public static final String DELETE_MEALS_URL = "/meals/**";
+	public static final String UPLOAD_MEALS_IMAGE = "/meals/upload";
 
 	// Pickups
 	public static final String UPDATE_PICKUPS_URL = "/pickups/**";
